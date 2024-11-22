@@ -1,1 +1,1 @@
-# Genetic-Algorithms-Optimize-Asset-Allocation
+# Genetic Algorithms Optimize Asset Allocation
