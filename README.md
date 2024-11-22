@@ -166,3 +166,34 @@ def GA_optimize(df, Population_size, rate, iter_bound):
 __(2)Fitness Function__
 
 After generating the population, we need to individually calculate the fitness value for each chromosome. In asset allocation, chromosomes represent the weights, and for each training dataset, we can use the aforementioned method to calculate the desired fitness value—the Sharpe ratio.
+
+![My Image](pic3.png)
+
+__Expected Return__<br>
+Defined as the simple average of portfolio returns over the period 𝑡0-𝑡𝑛 (in the example, 𝑡0-𝑡3). The expected return in the example is calculated as 0.26%.
+
+__Risk__<br>
+Defined as the standard deviation of portfolio returns over the period 𝑡0-𝑡𝑛 (in the example, 𝑡0-𝑡3). The risk in the example is calculated as 1.18%.
+
+__Risk-Free Interest Rate__<br>
+Defined as the theoretical return from a risk-free investment, which is required for Sharpe ratio calculations. In practice, it is typically represented by government bond yields. In the example, it is set at 0.05%.
+
+__Sharpe Ratio__<br>
+The fitness function used to evaluate the fitness value of chromosomes is defined as the Sharpe Ratio, which simultaneously measures both risk and return. It is calculated using the formula:
+
+Sharpe Ratio
+= (Expected Return − Risk-Free Interest Rate)/Risk
+ 
+Using the example data, the Sharpe Ratio is calculated as:
+
+Sharpe Ratio
+=
+0.26
+%
+−
+0.05
+%
+1.18
+%
+=
+0.1779
