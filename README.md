@@ -145,4 +145,20 @@ def chromosome(n, lb, ub):
       continue
 ```
 
+__Implementation Code for Generating the Initial Population__
 
+Below is the overall function for the Genetic Algorithm. The Population variable at line 144 is the code that generates the initial population.
+
+```python
+def GA_optimize(df, Population_size, rate, iter_bound):
+  number = len(df.columns)
+  Population = np.array([chromosome(number, LowerBound, UpperBound) for _ in range(Population_size)])
+  Elite_population = select_elite(df, Population, rate)
+  iteration = 0
+  while iteration <= iter_bound:
+    Population = next_generation(Population_size, Elite_population)
+    Elite_population = select_elite(df, Population, rate)
+    iteration += 1
+  result = max(Elite_population, key=lambda x: sharpe_ratio(df, x))
+  return result
+```
