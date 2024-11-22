@@ -100,3 +100,26 @@ __(5)Algorithm: Genetic Algorithm__
 
 ![My Image](pic2.JPEG)
 
+# Concept Introduction
+
+__(1) Summary__
+
+The method used to train the weights in the training data is the Genetic Algorithm (GA), which is an optimization algorithm inspired by the process of natural selection. Essentially, it simulates the evolutionary process of survival of the fittest. Initially, a population is generated, and before reaching the termination condition, a selection of elite individuals is made. These elites then produce the next generation through crossover or mutation, continuing the evolution process until termination.
+
+__(2) Generating Population/Chromosomes and Genes__
+
+We first generate a population, which consists of various chromosomes. Each chromosome contains different genes. We can think of a chromosome as the variable 𝑥 in a function 𝑓(𝑥), and a gene as an individual element 𝑥𝑖 within the 𝑥 vector. From an evolutionary algorithm perspective, a chromosome can represent an individual organism, while in the context of portfolio optimization, a chromosome can represent a set of weights.
+
+__Fitness Function__
+Next, we use the fitness function to calculate the fitness value of each chromosome. Depending on different applications, we can design various calculation methods. The concept is similar to the function 𝑓(𝑥) in mathematics, where 𝑓 represents the fitness function. In evolutionary terms, among many giraffes, the shorter ones cannot reach the leaves and thus die out, leaving only the taller giraffes. In this case, height is their fitness value. Applied to portfolio or trading, our goal is to discard poor weights and keep the good ones. The fitness value could be the Sharpe ratio, cumulative return, maximum drawdown, etc., depending on our desired evolutionary direction. In this study, we use the Sharpe ratio as the fitness value.
+
+__Elite Selection__
+After calculating the fitness of the generated population, if the termination condition is not yet met, we proceed to "selection". The purpose of this step is to retain the good and eliminate the bad. Implementation methods include the roulette wheel method, elitism, etc. In this study, we use the elitism method, which selects the weights with the highest Sharpe ratios in the population as the "elite". After selecting the elite, we move on to the crossover or mutation stage, where the evolutionary process is determined by preset probabilities.
+
+__Crossover__
+Crossover is akin to "like begets like"; the new chromosomes inherit favorable genes from their parent chromosomes, leading to directional evolution without introducing new information. In the biological world, this means that the surviving tall giraffes mate and produce offspring with genes for tall height, resulting in tall young giraffes.
+
+__Mutation__
+Mutation is intended to avoid the evolution falling into local optima and to allow the evolution to move towards global optima. It randomly selects a gene in a chromosome to mutate, introducing new information not seen before, resulting in non-directional evolution. In the context of a mutation, a giraffe might turn into a unicorn, representing a surprising change that helps escape local optima.
+
+
