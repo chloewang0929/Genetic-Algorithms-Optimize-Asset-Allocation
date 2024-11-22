@@ -185,15 +185,31 @@ Sharpe Ratio
 = (Expected Return − Risk-Free Interest Rate)/Risk
  
 Using the example data, the Sharpe Ratio is calculated as:
+Sharpe Ratio = (0.26% - 0.05%) / 0.18% = 0.1779。
 
-Sharpe Ratio
-=
-0.26
-%
-−
-0.05
-%
-1.18
-%
-=
-0.1779
+__Implementation Code for the Fitness Function__<br>
+Each weight can correspond to a Sharpe ratio. Using jit compilation from numba can speed up the computation of the Sharpe ratio for each weight.
+
+```python
+@jit 
+def pnl(df, w): 
+  return (df * w).sum(axis=1) 
+  
+@jit 
+def ret(array): 
+  return array.mean() * 252 
+@jit 
+def risk(array): 
+  return array.std() * np.sqrt(252) 
+  
+def sharpe_ratio(df, w): 
+  df = df.to_numpy() 
+  PnL = pnl(df, w) 
+  portfolio_return = ret(PnL) 
+  portfolio_risk = risk(PnL) 
+  return (portfolio_return - risk_free) / portfolio_risk
+```
+
+__(3)Elite Selection__<br>
+
+Each weight corresponds to a Sharpe ratio. Next, we eliminate the weights with lower Sharpe ratios and select the top 200 weights as elite weights. Only these elites are allowed to participate in crossover or mutation to produce offspring, thereby inheriting favorable genes—those with high Sharpe ratios. The following steps involve crossover and mutation.
