@@ -98,5 +98,5 @@ We split the entire dataset into several training and testing datasets, updating
 
 __(5)Algorithm: Genetic Algorithm__
 
-![My Image](pic2.jpeg)
+![My Image](pic2.JPEG)
 
