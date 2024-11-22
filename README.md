@@ -50,9 +50,42 @@ __(3) Analyze Goals__
 Our research focuses on multiple assets with weight adjustments at regular intervals, such as quarterly, annually, or other specified periods. The goal is to create a portfolio with the best Sharpe ratio and compare it to benchmarks (average allocation, random allocation). This study aims to maximize the Sharpe ratio, and ultimately, the selected portfolios of each team member will be presented.
 The data for the entire period is sourced from Yahoo Finance, covering the period from January 1, 2005, to January 1, 2022. The assets are as follows (Yahoo Finance ticker symbols in parentheses):
 
-Cocoa Futures (CC=F)
-NASDAQ Futures (NQ=F)
-0050 ETF (0050.TW)
-TSMC Stock (2330.TW)
-Gold Futures (GC=F)
-U.S. Treasury Futures (ZB=F)
+Cocoa Futures (CC=F)<br>
+NASDAQ Futures (NQ=F)<br>
+0050 ETF (0050.TW)<br>
+TSMC Stock (2330.TW)<br>
+Gold Futures (GC=F)<br>
+U.S. Treasury Futures (ZB=F)<br>
+
+__Crawler Function Implementation Code__
+
+The YahooData function is used to fetch the closing price data for a given date range and stock or futures ticker symbol. The Generate_Data function takes a list of stock ticker symbols as input and consolidates all closing prices into a single DataFrame.
+
+```python
+def YahooData(ticker, start, end):
+  headers = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9'
+  }
+
+  url = "https://query1.finance.yahoo.com/v7/finance/download/" + str(ticker)
+  x = int(datetime.strptime(start, '%Y-%m-%d').timestamp())
+  y = int(datetime.strptime(end, '%Y-%m-%d').timestamp())
+  url += "?period1=" + str(x) + "&period2=" + str(y) + "&interval=1d&events=history&includeAdjustedClose=true"
+
+  r = requests.get(url, headers=headers)
+  pad = pd.read_csv(io.StringIO(r.text), index_col=0, parse_dates=True)
+  return pad['Close'].pct_change()
+
+
+def generate_data(t_list, start_day, end_day):
+  print('start loading')
+  df = pd.DataFrame()
+  for ticker in t_list:
+    temp_stock = YahooData(ticker, start_day, end_day)
+    print(ticker, 'loaded')
+    df = pd.concat([df, temp_stock], axis=1)
+  print('loading finish')
+  df.columns = t_list
+  df = df.fillna(0)
+  return df
+```
