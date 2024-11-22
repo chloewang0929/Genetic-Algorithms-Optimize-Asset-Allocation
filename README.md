@@ -162,3 +162,7 @@ def GA_optimize(df, Population_size, rate, iter_bound):
   result = max(Elite_population, key=lambda x: sharpe_ratio(df, x))
   return result
 ```
+
+__(2)Fitness Function__
+
+After generating the population, we need to individually calculate the fitness value for each chromosome. In asset allocation, chromosomes represent the weights, and for each training dataset, we can use the aforementioned method to calculate the desired fitness value—the Sharpe ratio.
