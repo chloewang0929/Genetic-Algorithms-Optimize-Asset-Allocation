@@ -89,3 +89,8 @@ def generate_data(t_list, start_day, end_day):
   df = df.fillna(0)
   return df
 ```
+
+__(4)__Analysis Architecture__
+
+We split the entire dataset into several training and testing datasets, updating them at fixed intervals. (The analysis method will be explained in the implementation process later.) The weights trained on the training data are then applied to the corresponding testing data to observe the portfolio's performance. This approach achieves practical trading effects, avoiding overfitting or foresight issues.
+
