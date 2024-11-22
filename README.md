@@ -98,3 +98,5 @@ We split the entire dataset into several training and testing datasets, updating
 
 __(5)Algorithm: Genetic Algorithm__
 
+![My Image](上午11.38 2024-11-22的影像.jpeg)
+
