@@ -229,3 +229,5 @@ def select_elite(df, pop, s_ratio):
 __(4)Crossover Process__<br>
 
 During the crossover process, we randomly select two elite weights and create a new weight through a weighted average based on a random number. This is somewhat like a child inheriting 40% from the mother and 60% from the father. For example, if we randomly select weights A and B, and the random number is 0.4, the resulting weight would be calculated as 0.4 times the weight A and 0.6 times the weight B.
+
+![My Image](pic5.JPG)
