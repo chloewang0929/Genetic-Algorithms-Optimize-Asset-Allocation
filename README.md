@@ -213,3 +213,19 @@ def sharpe_ratio(df, w):
 __(3)Elite Selection__<br>
 
 Each weight corresponds to a Sharpe ratio. Next, we eliminate the weights with lower Sharpe ratios and select the top 200 weights as elite weights. Only these elites are allowed to participate in crossover or mutation to produce offspring, thereby inheriting favorable genes—those with high Sharpe ratios. The following steps involve crossover and mutation.
+
+![My Image](pic4.JPG)
+
+__Elite Selection Implementation Code__<br>
+S_ratio represents the elite selection rate. The code sorts all weights in the population by their Sharpe ratios and then returns the elite weights DataFrame based on the elite selection rate. If the selection rate is too high, the evolution time will be too long; if too low, the process may get stuck in a local optimum.
+
+```python
+def select_elite(df, pop, s_ratio):
+  pop = sorted(pop, key=lambda x: sharpe_ratio(df, x), reverse=True
+  percentage_elite_index = int(np.floor(len(pop) * s_ratio))
+  return pop[:percentage_elite_index]
+```
+
+__(4)Crossover Process__<br>
+
+During the crossover process, we randomly select two elite weights and create a new weight through a weighted average based on a random number. This is somewhat like a child inheriting 40% from the mother and 60% from the father. For example, if we randomly select weights A and B, and the random number is 0.4, the resulting weight would be calculated as 0.4 times the weight A and 0.6 times the weight B.
