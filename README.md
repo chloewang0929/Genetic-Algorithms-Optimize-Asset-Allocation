@@ -268,3 +268,7 @@ def mutate(parent, lb, ub):
     else:
       continue
 ```
+
+__(6)Evolution__<br>
+
+We continue the reproduction process until we reach the original total number of weights, completing one generation of evolution. After completing one generation, we can continue to evolve generation by generation until we decide to stop. The stopping condition can be designed according to our preferences, such as ending the evolution after a certain number of generations, or when the entire population has converged or remained the same for several generations. We can then select the final weights as the training result and apply them to the test data.
