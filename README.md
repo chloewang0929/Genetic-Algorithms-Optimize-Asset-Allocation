@@ -248,3 +248,23 @@ __(5)Mutation Process__<br>
 
 For the mutation process, we randomly select a gene and add a random number between 0 and 0.01 to it. We then readjust the weights to sum up to 100%, resulting in a weight slightly different from the original. This change is non-directional. The elite weights, after crossover and mutation, produce offspring weights with specific characteristics.
 
+![My Image](pic7.JPG)
+
+__Mutation Implementation__<br>
+In this implementation, the variable change represents the randomly selected gene. A random variable temp is then generated. The weights are readjusted to sum up to 100%, similar to the chromosome generation function previously discussed, and the mutated weights are returned. Since mutation can introduce new information and may cause a single gene to exceed the predefined bounds, if it goes out of bounds, mutation is re-applied.
+
+```python
+@jit
+def mutate(parent, lb, ub):
+  while True:
+    child = parent.copy()
+    change = np.random.choice(np.arange(len(parent)))
+    temp = np.random.rand() / 100
+    child[change] += temp
+    result = child / sum(child)
+    all_asset_st = (lb <= result) & (result <= ub)
+    if all_asset_st.all():
+      return result
+    else:
+      continue
+```
