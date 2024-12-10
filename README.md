@@ -372,5 +372,15 @@ Genetic Algorithm Portfolio Sharpe Heatmap<br>
 Sharpe Ratio Improvement Ratio of Genetic Algorithm Relative to Equal Weight Portfolio Heatmap<br>
 ![My Image](pic11.png)
 
+__(2)Weight Variation Chart__<br>
+
+This chart illustrates the variation in weights, where each weight fluctuates between its upper and lower bounds. In practical asset allocation, aside from considering the Sharpe ratio, the upper and lower bounds for each asset's weight are also regulated. This ensures that no asset is allocated excessively or insufficiently.
+
+• Blue represents TSMC<br>
+• Purple represents Gold<br>
+• Gray represents NASDAQ<br>
+• Yellow represents Cocoa<br>
+• Green represents 0050 ETF<br>
+• Red represents US Treasury Bonds<br>
 
 
