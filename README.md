@@ -275,3 +275,17 @@ We continue the reproduction process until we reach the original total number of
 
 ![My Image](pic8.png)
 
+__Evolutionary Next-Generation Implementation Code__<br>
+"Dynamic Crossover and Mutation Probability Management in Evolutionary Algorithms: Simulating Biological Evolution Strategies"
+
+Key Algorithmic Characteristics:
+
+○ Early Generation Phase:
+  ○ Crossover Probability: 0.6
+  ○ Mutation Probability: 0.4
+  ○ Strategy: Emphasize genetic recombination and information exchange
+
+○ Late Generation Phase:
+  ○ Crossover Probability: 0.1
+  ○ Mutation Probability: 0.9
+  ○ Strategy: Prioritize genetic exploration and diversification
