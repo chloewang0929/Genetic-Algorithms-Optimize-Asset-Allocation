@@ -318,3 +318,8 @@ while len(new_population) < pop_size:
         # print('交配花費', e-s, '秒')
   return new_population
 ```
+__Implementation of the Overall Evolution Process__<br>
+Combine the aforementioned steps into a main function. The function should accept the following parameters:<br>
+⮕Population_size: The parameter representing the number of individuals in the population.<br>
+⮕rate: The parameter representing the selection rate for elites.<br>
+⮕iter_bound: The parameter representing the termination criterion for evolution, meaning the process stops after evolving for n generations.<br>
