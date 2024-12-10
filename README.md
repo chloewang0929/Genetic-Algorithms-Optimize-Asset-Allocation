@@ -340,8 +340,10 @@ def GA_optimize(df, Population_size, rate, iter_bound):
 __(7)Backtesting__<br>
  <br>
 Backtesting Results Focus on Four Key Points:<br>
+
 • The First Method: Combining all test data results according to the previously mentioned method, which is the outcome of this study.<br>
 • The Second Method: Equal Allocation, which is the intuitive method that most ordinary people would think of when configuring.<br>
 • The Third Method: The "Cheating" Combination, which resembles knowing the answer in advance and configuring the weight combination with the highest Sharpe ratio.<br>
 • The Fourth Method: Random Simulation Combination, hoping to see if random allocation might also have relative advantages.<br>
+
 By comparing the above four methods, we aim to determine whether the configuration derived from this study truly has an advantage.
