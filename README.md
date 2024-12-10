@@ -411,3 +411,16 @@ Next is the part about average drawdown, which, like the Sharpe ratio, is not th
 __(6)Risk-Reward Ratio__<br>
 
 Next, we have the risk-reward ratio, which is the proportion of maximum drawdown to cumulative return. As shown in the diagram below, although it is also considered an additional value, the asset allocation obtained through the genetic algorithm outperforms the equal allocation, the "cheating" combination, and greatly surpasses all random combinations, making its performance exceptionally impressive!
+
+![My Image](pic18.png)
+
+![My Image](pic19.png)
+
+__(7)Overall Performance Display__<br>
+
+The overall performance display clearly shows the effectiveness in the evolutionary direction, specifically in improving the Sharpe ratio, which distinctly differentiates it from other methods. In the three additional effects that are not the main evolution targets, our method also has relative advantages compared to the other three methods.<br>
+
+• Red represents the developed combination<br>
+• Blue represents equal allocation<br>
+• Black represents the "cheating" combination<br>
+• Purple represents random average allocation<br>
