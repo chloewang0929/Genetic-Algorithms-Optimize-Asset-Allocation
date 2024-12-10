@@ -280,12 +280,12 @@ __Evolutionary Next-Generation Implementation Code__<br>
 
 Key Algorithmic Characteristics:
 
-○ Early Generation Phase:
-  ○ Crossover Probability: 0.6
-  ○ Mutation Probability: 0.4
-  ○ Strategy: Emphasize genetic recombination and information exchange
+○ Early Generation Phase:<br>
+  ○ Crossover Probability: 0.6<br>
+  ○ Mutation Probability: 0.4<br>
+  ○ Strategy: Emphasize genetic recombination and information exchange<br>
 
-○ Late Generation Phase:
-  ○ Crossover Probability: 0.1
-  ○ Mutation Probability: 0.9
-  ○ Strategy: Prioritize genetic exploration and diversification
+○ Late Generation Phase:<br>
+  ○ Crossover Probability: 0.1<br>
+  ○ Mutation Probability: 0.9<br>
+  ○ Strategy: Prioritize genetic exploration and diversification<br>
