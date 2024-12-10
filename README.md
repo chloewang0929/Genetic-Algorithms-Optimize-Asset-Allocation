@@ -290,31 +290,4 @@ Key Algorithmic Characteristics:
   ⮕ Mutation Probability: 0.9<br>
   ⮕ Strategy: Prioritize genetic exploration and diversification<br>
 
-```python
-while len(new_population) < pop_size:
-    if len(new_population) > 2 * pop_size / 3:
-        # s = time()
-        mutate_or_crossover = random.choices([0, 1], weights=[0.9, 0.1])[0]
-        # e = time()
-        # print("前期隨機產生突變或交配", e-s, '秒')
-    else:
-        # s = time()
-        mutate_or_crossover = random.choices([0, 1], weights=[0.4, 0.6])[0]
-        # e = time()
-        # print("後期隨機產生突變或交配", e-s, '秒')
-    
-    if mutate_or_crossover:
-        # s = time()
-        index = random.choice(elite_range)
-        new_population.append(mutate(elite[index], LowerBound, UpperBound))
-        # e = time()
-        # print('突變花費', e-s, '秒')
-    else:
-        # s = time()
-        p1_index, p2_index = random.sample(elite_range, 2)
-        c1, c2 = crossover(elite[p1_index], elite[p2_index])
-        new_population.extend([c1, c2])
-        # e = time()
-        # print('交配花費', e-s, '秒')
-  return new_population
-```
+
