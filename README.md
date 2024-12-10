@@ -383,4 +383,15 @@ This chart illustrates the variation in weights, where each weight fluctuates be
 • Green represents 0050 ETF<br>
 • Red represents US Treasury Bonds<br>
 
+![My Image](pic12.png)
+
+__(3)Performance Comparison Chart with Different Assets__<br>
+
+This chart presents the equity curves of all lines within the testing period. The thick red line represents the combination we developed, which shows relatively stable performance compared to other individual assets.<br>
+
+• The thick dark blue line represents the equal allocation.<br>
+• The thick black line represents the "cheating" combination.<br>
+
+![My Image](pic13.png)
+
 
