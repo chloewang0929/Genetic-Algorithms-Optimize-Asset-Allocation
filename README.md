@@ -347,3 +347,23 @@ Backtesting Results Focus on Four Key Points:<br>
 • The Fourth Method: Random Simulation Combination, hoping to see if random allocation might also have relative advantages.<br>
 
 By comparing the above four methods, we aim to determine whether the configuration derived from this study truly has an advantage.
+
+__(8)Parameter Introduction__<br>
+
+• Training Length: The duration of the training period, which may affect the results. It ranges from 4 quarters to 32 quarters, measured in quarters.<br>
+• Testing Length: The duration of the testing period, which may affect the results. It ranges from 1 month to 12 months, measured in months.<br>
+• Risk-Free Rate: Required for calculating the Sharpe ratio. The risk-free rate as of January 14, 2022, is 0.73%.<br>
+• Weight Limits: Extremely high or low weights are unrealistic. The upper limit is set to 150%/n, and the lower limit is set to 50%/n.<br>
+
+# Research Results
+
+__(1)Training Length - Testing Length Parameters and Their Impact on the Sharpe Ratio__<br>
+
+After the analysis, we generated a heatmap for the training and testing data. Since our observed results come from all the test data, we must exclude the training data portion. Consequently, the length of the training data is compressed to the observation period, resulting in different baseline Sharpe ratios. For example, there are times when most assets in the market might perform relatively stably, leading to higher Sharpe ratios regardless of the configuration. Therefore, we use the "Sharpe Ratio improvement ratio of the Genetic Algorithm relative to equal weight" as a basis for evaluating the effectiveness of parameters, illustrated by the purple heatmap below.<br>
+
+Through analysis, we found that the training period should not be too long, as long-term data training might not align with the recent market fluctuations. On the other hand, the length of the testing period has minimal impact.<br>
+
+Equal Weight Portfolio Sharpe Heatmap<br>
+
+
+
