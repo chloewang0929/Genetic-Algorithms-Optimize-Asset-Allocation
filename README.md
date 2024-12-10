@@ -364,6 +364,13 @@ After the analysis, we generated a heatmap for the training and testing data. Si
 Through analysis, we found that the training period should not be too long, as long-term data training might not align with the recent market fluctuations. On the other hand, the length of the testing period has minimal impact.<br>
 
 Equal Weight Portfolio Sharpe Heatmap<br>
+![My Image](pic9.png)
+
+Genetic Algorithm Portfolio Sharpe Heatmap<br>
+![My Image](pic10.png)
+
+Sharpe Ratio Improvement Ratio of Genetic Algorithm Relative to Equal Weight Portfolio Heatmap<br>
+![My Image](pic11.png)
 
 
 
