@@ -398,5 +398,12 @@ __(4)Sharpe Ratio__<br>
 
 Our algorithm optimizes weights based on the performance of the Sharpe ratio, which is the direction we set for evolution. The Sharpe ratio performance is the most important goal in this study. It can be observed that the distribution of the Sharpe ratio from random allocation presents a bell-shaped distribution with an average of 0.8683 and a standard deviation of 0.051. The equal allocation ranks at the 61.25th percentile in the distribution of randomly allocated Sharpe ratios, meaning it only outperforms 6125 out of 10000 random weight simulations. The genetic algorithm portfolio ranks at the 100.00th percentile, outperforming equal allocation and completely surpassing the random weight simulations of 10000 times. Additionally, it is very close to the performance of the "cheating" combination, indicating excellent effectiveness.
 
+![My Image](pic14.png)
+![My Image](pic15.png)
 
+__(5)Average Drawdown__<br>
 
+Next is the part about average drawdown, which, like the Sharpe ratio, is not the primary evolutionary direction, and is thus considered an additional value. The average drawdown is 2.88%, which is better than the equal allocation's 3.32%. It outperforms 9957 out of 10000 random weights, closely matching the "cheating" combination's 2.85%.
+
+![My Image](pic16.png)
+![My Image](pic17.png)
