@@ -90,13 +90,13 @@ def generate_data(t_list, start_day, end_day):
   return df
 ```
 
-__(4)Analysis Architecture__
+__(4) Analysis Architecture__
 
 We split the entire dataset into several training and testing datasets, updating them at fixed intervals. (The analysis method will be explained in the implementation process later.) The weights trained on the training data are then applied to the corresponding testing data to observe the portfolio's performance. This approach achieves practical trading effects, avoiding overfitting or foresight issues.
 
 ![My Image](影像.jpeg)
 
-__(5)Algorithm: Genetic Algorithm__
+__(5) Algorithm: Genetic Algorithm__
 
 ![My Image](pic2.JPEG)
 
@@ -163,7 +163,7 @@ def GA_optimize(df, Population_size, rate, iter_bound):
   return result
 ```
 
-__(2)Fitness Function__
+__(2) Fitness Function__
 
 After generating the population, we need to individually calculate the fitness value for each chromosome. In asset allocation, chromosomes represent the weights, and for each training dataset, we can use the aforementioned method to calculate the desired fitness value—the Sharpe ratio.
 
@@ -210,7 +210,7 @@ def sharpe_ratio(df, w):
   return (portfolio_return - risk_free) / portfolio_risk
 ```
 
-__(3)Elite Selection__<br>
+__(3) Elite Selection__<br>
 
 Each weight corresponds to a Sharpe ratio. Next, we eliminate the weights with lower Sharpe ratios and select the top 200 weights as elite weights. Only these elites are allowed to participate in crossover or mutation to produce offspring, thereby inheriting favorable genes—those with high Sharpe ratios. The following steps involve crossover and mutation.
 
@@ -226,7 +226,7 @@ def select_elite(df, pop, s_ratio):
   return pop[:percentage_elite_index]
 ```
 
-__(4)Crossover Process__<br>
+__(4) Crossover Process__<br>
 
 During the crossover process, we randomly select two elite weights and create a new weight through a weighted average based on a random number. This is somewhat like a child inheriting 40% from the mother and 60% from the father. For example, if we randomly select weights A and B, and the random number is 0.4, the resulting weight would be calculated as 0.4 times the weight A and 0.6 times the weight B.
 
@@ -244,7 +244,7 @@ def crossover(parent1, parent2):
   return child1, child2
 ```
 
-__(5)Mutation Process__<br>
+__(5) Mutation Process__<br>
 
 For the mutation process, we randomly select a gene and add a random number between 0 and 0.01 to it. We then readjust the weights to sum up to 100%, resulting in a weight slightly different from the original. This change is non-directional. The elite weights, after crossover and mutation, produce offspring weights with specific characteristics.
 
@@ -269,7 +269,7 @@ def mutate(parent, lb, ub):
       continue
 ```
 
-__(6)Evolution__<br>
+__(6) Evolution__<br>
 
 We continue the reproduction process until we reach the original total number of weights, completing one generation of evolution. After completing one generation, we can continue to evolve generation by generation until we decide to stop. The stopping condition can be designed according to our preferences, such as ending the evolution after a certain number of generations, or when the entire population has converged or remained the same for several generations. We can then select the final weights as the training result and apply them to the test data.
 
@@ -337,7 +337,7 @@ def GA_optimize(df, Population_size, rate, iter_bound):
   result = max(Elite_population, key=lambda x: sharpe_ratio(df, x))
   return result
 ```
-__(7)Backtesting__<br>
+__(7) Backtesting__<br>
  <br>
 Backtesting Results Focus on Four Key Points:<br>
 
@@ -348,7 +348,7 @@ Backtesting Results Focus on Four Key Points:<br>
 
 By comparing the above four methods, we aim to determine whether the configuration derived from this study truly has an advantage.
 
-__(8)Parameter Introduction__<br>
+__(8) Parameter Introduction__<br>
 
 • Training Length: The duration of the training period, which may affect the results. It ranges from 4 quarters to 32 quarters, measured in quarters.<br>
 • Testing Length: The duration of the testing period, which may affect the results. It ranges from 1 month to 12 months, measured in months.<br>
@@ -357,7 +357,7 @@ __(8)Parameter Introduction__<br>
 
 # Research Results
 
-__(1)Training Length - Testing Length Parameters and Their Impact on the Sharpe Ratio__<br>
+__(1) Training Length - Testing Length Parameters and Their Impact on the Sharpe Ratio__<br>
 
 After the analysis, we generated a heatmap for the training and testing data. Since our observed results come from all the test data, we must exclude the training data portion. Consequently, the length of the training data is compressed to the observation period, resulting in different baseline Sharpe ratios. For example, there are times when most assets in the market might perform relatively stably, leading to higher Sharpe ratios regardless of the configuration. Therefore, we use the "Sharpe Ratio improvement ratio of the Genetic Algorithm relative to equal weight" as a basis for evaluating the effectiveness of parameters, illustrated by the purple heatmap below.<br>
 
@@ -372,7 +372,7 @@ Genetic Algorithm Portfolio Sharpe Heatmap<br>
 Sharpe Ratio Improvement Ratio of Genetic Algorithm Relative to Equal Weight Portfolio Heatmap<br>
 ![My Image](pic11.png)
 
-__(2)Weight Variation Chart__<br>
+__(2) Weight Variation Chart__<br>
 
 This chart illustrates the variation in weights, where each weight fluctuates between its upper and lower bounds. In practical asset allocation, aside from considering the Sharpe ratio, the upper and lower bounds for each asset's weight are also regulated. This ensures that no asset is allocated excessively or insufficiently.
 
@@ -385,7 +385,7 @@ This chart illustrates the variation in weights, where each weight fluctuates be
 
 ![My Image](pic12.png)
 
-__(3)Performance Comparison Chart with Different Assets__<br>
+__(3) Performance Comparison Chart with Different Assets__<br>
 
 This chart presents the equity curves of all lines within the testing period. The thick red line represents the combination we developed, which shows relatively stable performance compared to other individual assets.<br>
 
@@ -394,21 +394,21 @@ This chart presents the equity curves of all lines within the testing period. Th
 
 ![My Image](pic13.png)
 
-__(4)Sharpe Ratio__<br>
+__(4) Sharpe Ratio__<br>
 
 Our algorithm optimizes weights based on the performance of the Sharpe ratio, which is the direction we set for evolution. The Sharpe ratio performance is the most important goal in this study. It can be observed that the distribution of the Sharpe ratio from random allocation presents a bell-shaped distribution with an average of 0.8683 and a standard deviation of 0.051. The equal allocation ranks at the 61.25th percentile in the distribution of randomly allocated Sharpe ratios, meaning it only outperforms 6125 out of 10000 random weight simulations. The genetic algorithm portfolio ranks at the 100.00th percentile, outperforming equal allocation and completely surpassing the random weight simulations of 10000 times. Additionally, it is very close to the performance of the "cheating" combination, indicating excellent effectiveness.
 
 ![My Image](pic14.png)
 ![My Image](pic15.png)
 
-__(5)Average Drawdown__<br>
+__(5) Average Drawdown__<br>
 
 Next is the part about average drawdown, which, like the Sharpe ratio, is not the primary evolutionary direction, and is thus considered an additional value. The average drawdown is 2.88%, which is better than the equal allocation's 3.32%. It outperforms 9957 out of 10000 random weights, closely matching the "cheating" combination's 2.85%.
 
 ![My Image](pic16.png)
 ![My Image](pic17.png)
 
-__(6)Risk-Reward Ratio__<br>
+__(6) Risk-Reward Ratio__<br>
 
 Next, we have the risk-reward ratio, which is the proportion of maximum drawdown to cumulative return. As shown in the diagram below, although it is also considered an additional value, the asset allocation obtained through the genetic algorithm outperforms the equal allocation, the "cheating" combination, and greatly surpasses all random combinations, making its performance exceptionally impressive!
 
@@ -416,7 +416,7 @@ Next, we have the risk-reward ratio, which is the proportion of maximum drawdown
 
 ![My Image](pic19.png)
 
-__(7)Overall Performance Display__<br>
+__(7) Overall Performance Display__<br>
 
 The overall performance display clearly shows the effectiveness in the evolutionary direction, specifically in improving the Sharpe ratio, which distinctly differentiates it from other methods. In the three additional effects that are not the main evolution targets, our method also has relative advantages compared to the other three methods.<br>
 
@@ -431,7 +431,7 @@ The overall performance display clearly shows the effectiveness in the evolution
 
 # Research Discussion/Conclusion
 
-__(1)Conclusion__<br>
+__(1) Conclusion__<br>
 
 Through the aforementioned research, we found that the investment portfolio configured using the genetic algorithm meets the original intention and indeed reduces the risk of investing in a single asset. The advantages are as follows:<br>
 
@@ -441,7 +441,7 @@ Through the aforementioned research, we found that the investment portfolio conf
 • The adjustment of weights and the backtesting period are both substantial, so there is no issue of slippage, allowing sufficient time to build positions.<br>
 • When a particular asset performs poorly, the weight of that asset is automatically reduced, enabling our asset allocation to achieve the highest Sharpe ratio.<br>
 
-__(2)Areas for Improvement__<br>
+__(2) Areas for Improvement__<br>
 
 After concluding the research, we identified two areas that can be refined in future studies:<br>
 
