@@ -407,3 +407,7 @@ Next is the part about average drawdown, which, like the Sharpe ratio, is not th
 
 ![My Image](pic16.png)
 ![My Image](pic17.png)
+
+__(6)Risk-Reward Ratio__<br>
+
+Next, we have the risk-reward ratio, which is the proportion of maximum drawdown to cumulative return. As shown in the diagram below, although it is also considered an additional value, the asset allocation obtained through the genetic algorithm outperforms the equal allocation, the "cheating" combination, and greatly surpasses all random combinations, making its performance exceptionally impressive!
