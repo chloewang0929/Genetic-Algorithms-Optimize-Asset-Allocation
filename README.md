@@ -323,3 +323,17 @@ Combine the aforementioned steps into a main function. The function should accep
 ⮕Population_size: The parameter representing the number of individuals in the population.<br>
 ⮕rate: The parameter representing the selection rate for elites.<br>
 ⮕iter_bound: The parameter representing the termination criterion for evolution, meaning the process stops after evolving for n generations.<br>
+
+```python
+def GA_optimize(df, Population_size, rate, iter_bound):
+  number = len(df.columns)
+  Population = np.array([chromosome(number, Lower_Bound, Upper_Bound) for _ in range(Population_size)])
+  Elite_population = select_elite(df, Population, rate)
+  iteration = 0  
+  while iteration <= iter_bound:
+    Population = next_generation(Population_size, Elite_population)
+    Elite_population = select_elite(df, Population, rate)
+    iteration += 1
+  result = max(Elite_population, key=lambda x: sharpe_ratio(df, x))
+  return result
+```
