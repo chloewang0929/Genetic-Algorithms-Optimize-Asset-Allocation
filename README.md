@@ -425,4 +425,26 @@ The overall performance display clearly shows the effectiveness in the evolution
 • Black represents the "cheating" combination<br>
 • Purple represents random average allocation<br>
 
+![My Image](pic20.png)
 
+![My Image](pic21.png)
+
+# Research Discussion/Conclusion
+
+__(1)Conclusion__<br>
+
+Through the aforementioned research, we found that the investment portfolio configured using the genetic algorithm meets the original intention and indeed reduces the risk of investing in a single asset. The advantages are as follows:<br>
+
+• The asset portfolio is very stable, with small drawdowns, reducing the risk associated with leveraging.<br>
+• In every aspect, our performance is better than the equal allocation, which is the intuitive method most ordinary people use.<br>
+• In terms of evolution, we outperformed the random weight allocation, indicating a significant differentiation that is hard for others to replicate.<br>
+• The adjustment of weights and the backtesting period are both substantial, so there is no issue of slippage, allowing sufficient time to build positions.<br>
+• When a particular asset performs poorly, the weight of that asset is automatically reduced, enabling our asset allocation to achieve the highest Sharpe ratio.<br>
+
+__(2)Areas for Improvement__<br>
+
+After concluding the research, we identified two areas that can be refined in future studies:<br>
+
+• Enhancing the Fitness Function: Consider incorporating factors beyond the Sharpe ratio, such as maximum drawdown and EPS, to make the objective more comprehensive.<br>
+• Improving Algorithm Efficiency: Increase the computational speed of the algorithm so that we can use parameters with larger computational demands while maintaining the same efficiency and time. This would make the results of the model training more stable.<br>
+• Constrained Weight Generation: When generating or mutating chromosomes, address the issue of weight constraints. Instead of regenerating weights that do not meet the conditions, directly generate weights that comply with the constraints.
