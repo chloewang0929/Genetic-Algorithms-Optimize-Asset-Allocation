@@ -2,7 +2,7 @@
 # Introduction
 
 Asset Allocation and Portfolio have been very popular topics for many years. Investors can obtain excess returns and diversify their investments by investing in different financial products.
-risk. However, how to select high-return, low-risk investment portfolios from the market is really difficult.
+However, how to select high-return, low-risk investment portfolios from the market is really difficult.
 knowledge.
 
 As we all know, when investing in financial products, high returns come with high risks. Nobel Prize Winner in Economics
