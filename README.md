@@ -3,7 +3,6 @@
 
 Asset Allocation and Portfolio have been very popular topics for many years. Investors can obtain excess returns and diversify their investments by investing in different financial products.
 However, how to select high-return, low-risk investment portfolios from the market is really difficult.
-knowledge.
 
 As we all know, when investing in financial products, high returns come with high risks. Nobel Prize Winner in Economics
 Markowitz proposed the concept of investment portfolio in 1952, using the metaphor of "eggs should not be put in the same basket" to illustrate the importance of risk diversification; using diversification to reduce the risk of investing in commodities, it is expected to achieve the lowest risk effect. . Among them, expected return is often defined as the simple average of daily profits and losses in the past period; risk, also known as volatility, is often defined as the standard deviation of daily profits and losses in the past period. The larger the standard deviation, the greater the standard deviation of the asset in the past. The greater the fluctuation, the greater the risk.
